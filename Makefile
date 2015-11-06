@@ -23,7 +23,6 @@ install-ansible-roles:
 
 
 install:
-	@sudo /var/venv/bin/pip install -r deps/requirements.txt
 	@sudo /var/venv/bin/pip install -r deps/develop.txt
 
 

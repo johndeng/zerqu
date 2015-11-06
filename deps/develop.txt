@@ -1,2 +1,3 @@
+-r requirements.txt
 loremipsum==1.0.5
 alembic==0.8.2

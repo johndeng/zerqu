@@ -1,0 +1,27 @@
+language: python
+
+sudo: required
+
+python:
+  - "2.7"
+
+services:
+  - postgresql
+  - redis-server
+
+install:
+  - pip install --upgrade pip
+  - pip install -e .
+  - pip install -r deps/tests.txt
+
+before_script:
+  - sudo /etc/init.d/postgresql stop
+  - sudo /etc/init.d/postgresql start 9.4
+  - psql -c 'create database testing;' -U postgres
+
+script:
+  - coverage run --branch --source=zerqu -m py.test tests
+  - coverage report -m
+
+after_success:
+  - coveralls

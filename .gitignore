@@ -20,3 +20,6 @@ cover/
 venv/
 htmlcov/
 playbooks/roles/*.*
+
+.coverage
+.cache/
